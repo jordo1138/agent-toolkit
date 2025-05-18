@@ -245,7 +245,7 @@ main().catch((error) => {
 - [List all disputes](https://docs.stripe.com/api/disputes/list)
 - [Update a dispute](https://docs.stripe.com/api/disputes/update)
 - [List all payment method configurations](https://docs.stripe.com/api/payment_method_configurations/list)
-- [Update payment method configurations] (https://docs.stripe.com/api/payment_method_configurations/update)
+- [Update payment method configurations](https://docs.stripe.com/api/payment_method_configurations/update)
 
 [python-sdk]: https://github.com/stripe/stripe-python
 [node-sdk]: https://github.com/stripe/stripe-node
