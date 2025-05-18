@@ -387,3 +387,37 @@ def create_billing_portal_session(context: Context, customer: str, return_url: O
         "customer": session_object.customer,
         "url": session_object.url,
     }
+
+
+def list_payment_method_configurations(
+    context: Context, limit: Optional[int] = None
+):
+    """List payment method configurations."""
+
+    params: dict = {}
+    if limit:
+        params["limit"] = limit
+    if context.get("account") is not None:
+        account = context.get("account")
+        if account is not None:
+            params["stripe_account"] = account
+
+    configs = stripe.PaymentMethodConfiguration.list(**params)
+    return [{"id": c.id} for c in configs.data]
+
+
+def update_payment_method_configuration(
+    context: Context, configuration: str, payment_method: str, enabled: bool
+):
+    """Enable or disable a payment method on a configuration."""
+
+    update_params = {
+        payment_method: {"display_preference": {"merchant_enabled": enabled}}
+    }
+    if context.get("account") is not None:
+        account = context.get("account")
+        if account is not None:
+            update_params["stripe_account"] = account
+
+    config = stripe.PaymentMethodConfiguration.update(configuration, **update_params)
+    return {"id": config.id}

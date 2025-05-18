@@ -207,3 +207,29 @@ class CreateBillingPortalSession(BaseModel):
             "The default URL to return to afterwards."
         ),
     )
+
+
+class ListPaymentMethodConfigurations(BaseModel):
+    """Schema for the ``list_payment_method_configurations`` operation."""
+
+    limit: Optional[int] = Field(
+        None,
+        description=(
+            "A limit on the number of objects to be returned."
+            " Limit can range between 1 and 100."
+        ),
+    )
+
+
+class UpdatePaymentMethodConfiguration(BaseModel):
+    """Schema for the ``update_payment_method_configuration`` operation."""
+
+    configuration: str = Field(
+        ..., description="The ID of the configuration to update."
+    )
+    payment_method: str = Field(
+        ..., description="The payment method type to modify."
+    )
+    enabled: bool = Field(
+        ..., description="Whether the payment method should be enabled."
+    )
