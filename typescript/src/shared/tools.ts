@@ -22,6 +22,8 @@ import updateSubscriptionTool from '@/shared/subscriptions/updateSubscription';
 import searchDocumentationTool from '@/shared/documentation/searchDocumentation';
 import listDisputesTool from '@/shared/disputes/listDisputes';
 import updateDisputeTool from '@/shared/disputes/updateDispute';
+import listPaymentMethodConfigurationsTool from '@/shared/paymentMethodConfigurations/listPaymentMethodConfigurations';
+import updatePaymentMethodConfigurationTool from '@/shared/paymentMethodConfigurations/updatePaymentMethodConfiguration';
 
 import {Context} from './configuration';
 import Stripe from 'stripe';
@@ -57,6 +59,8 @@ const tools = (context: Context): Tool[] => [
   listSubscriptionsTool(context),
   cancelSubscriptionTool(context),
   updateSubscriptionTool(context),
+  listPaymentMethodConfigurationsTool(context),
+  updatePaymentMethodConfigurationTool(context),
   searchDocumentationTool(context),
   listCouponsTool(context),
   createCouponTool(context),
