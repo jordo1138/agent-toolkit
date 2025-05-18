@@ -12,7 +12,7 @@ Object = Literal[
     "balance",
     "refunds",
     "paymentIntents",
-    "payment_method_configurations",
+    "paymentMethodConfigurations",
 ]
 
 
@@ -40,7 +40,7 @@ class Actions(TypedDict, total=False):
     refunds: Optional[Permission]
     payment_intents: Optional[Permission]
     billing_portal_sessions: Optional[Permission]
-    payment_method_configurations: Optional[Permission]
+    paymentMethodConfigurations: Optional[Permission]
 
 
 # Define Context type
