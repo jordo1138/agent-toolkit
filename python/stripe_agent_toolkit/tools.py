@@ -212,7 +212,7 @@ tools: List[Dict] = [
         "description": LIST_PAYMENT_METHOD_CONFIGURATIONS_PROMPT,
         "args_schema": ListPaymentMethodConfigurations,
         "actions": {
-            "payment_method_configurations": {
+            "paymentMethodConfigurations": {
                 "read": True,
             }
         },
@@ -223,7 +223,7 @@ tools: List[Dict] = [
         "description": UPDATE_PAYMENT_METHOD_CONFIGURATION_PROMPT,
         "args_schema": UpdatePaymentMethodConfiguration,
         "actions": {
-            "payment_method_configurations": {
+            "paymentMethodConfigurations": {
                 "update": True,
             }
         },
