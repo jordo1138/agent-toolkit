@@ -12,5 +12,6 @@ describe('updatePaymentMethodConfigPrompt', () => {
   it('mentions configuration argument', () => {
     const prompt = updatePaymentMethodConfigPrompt();
     expect(prompt).toContain('configuration');
+    expect(prompt).toContain('preference');
   });
 });

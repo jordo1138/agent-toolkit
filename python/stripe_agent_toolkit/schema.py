@@ -1,4 +1,4 @@
-from typing import Optional
+from typing import Optional, Literal
 from pydantic import BaseModel, Field
 
 
@@ -230,6 +230,10 @@ class UpdatePaymentMethodConfig(BaseModel):
     payment_method: str = Field(
         ..., description="The payment method type to modify."
     )
-    enabled: bool = Field(
-        ..., description="Whether the payment method should be enabled."
+    preference: Literal["on", "off"] = Field(
+        ...,
+        description=(
+            "Display preference for the payment method."
+            " Must be 'on' or 'off'."
+        ),
     )

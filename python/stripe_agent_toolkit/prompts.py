@@ -126,5 +126,5 @@ This tool will update a payment method configuration in Stripe.
 It takes three arguments:
 - configuration (str): The ID of the configuration to update.
 - payment_method (str): The payment method type to modify.
-- enabled (bool): Whether the payment method should be enabled.
+- preference (str): Either 'on' or 'off'.
 """

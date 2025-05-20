@@ -14,7 +14,7 @@ describe('updatePaymentMethodConfigParameters', () => {
     expect(Object.keys(params.shape)).toEqual([
       'configuration',
       'payment_method',
-      'enabled',
+      'preference',
     ]);
   });
 });

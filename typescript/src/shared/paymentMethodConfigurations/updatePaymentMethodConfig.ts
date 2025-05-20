@@ -9,14 +9,14 @@ This tool will update a payment method configuration in Stripe.
 It takes the following arguments:
 - configuration (str): The ID of the payment method configuration to update.
 - payment_method (str): The payment method type to modify (e.g., 'link').
-- enabled (bool): Whether the payment method should be enabled.
+- preference (str): Either 'on' or 'off'.
 `;
 
 export const updatePaymentMethodConfigParameters = (_context: Context = {}) =>
   z.object({
     configuration: z.string().describe('The ID of the configuration to update.'),
     payment_method: z.string().describe('The payment method type to modify.'),
-    enabled: z.boolean().describe('Whether the payment method should be enabled.'),
+    preference: z.enum(['on', 'off']).describe("Display preference ('on' or 'off')."),
   });
 
 export const updatePaymentMethodConfig = async (
@@ -27,7 +27,8 @@ export const updatePaymentMethodConfig = async (
   try {
     const updateParams: any = {
       [params.payment_method]: {
-        display_preference: {merchant_enabled: params.enabled},
+        display_preference: {preference: params.preference},
+
       },
     };
 

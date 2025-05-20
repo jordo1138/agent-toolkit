@@ -407,12 +407,12 @@ def list_payment_method_configs(
 
 
 def update_payment_method_config(
-    context: Context, configuration: str, payment_method: str, enabled: bool
+    context: Context, configuration: str, payment_method: str, preference: str
 ):
-    """Enable or disable a payment method on a configuration."""
+    """Toggle a payment method's display preference."""
 
     update_params = {
-        payment_method: {"display_preference": {"merchant_enabled": enabled}}
+        payment_method: {"display_preference": {"preference": preference}}
     }
     if context.get("account") is not None:
         account = context.get("account")

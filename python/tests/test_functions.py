@@ -920,12 +920,12 @@ class TestStripeFunctions(unittest.TestCase):
                 context={},
                 configuration="pmc_123",
                 payment_method="link",
-                enabled=True,
+                preference="on",
             )
 
             mock_function.assert_called_with(
                 "pmc_123",
-                link={"display_preference": {"merchant_enabled": True}},
+                link={"display_preference": {"preference": "on"}},
             )
 
             self.assertEqual(result, {"id": mock_config["id"]})

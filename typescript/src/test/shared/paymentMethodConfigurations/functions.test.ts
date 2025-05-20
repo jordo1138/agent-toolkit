@@ -39,11 +39,11 @@ describe('updatePaymentMethodConfig', () => {
     const result = await updatePaymentMethodConfig(stripe, {}, {
       configuration: 'pmc_123',
       payment_method: 'link',
-      enabled: true,
+      preference: 'on',
     });
     expect(stripe.paymentMethodConfigurations.update).toHaveBeenCalledWith(
       'pmc_123',
-      {link: {display_preference: {merchant_enabled: true}}},
+      {link: {display_preference: {preference: 'on'}}},
       undefined
     );
     expect(result).toEqual({id: 'pmc_123'});
