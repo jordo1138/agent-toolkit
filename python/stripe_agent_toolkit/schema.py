@@ -1,4 +1,4 @@
-from typing import Optional
+from typing import Optional, Literal
 from pydantic import BaseModel, Field
 
 
@@ -209,8 +209,8 @@ class CreateBillingPortalSession(BaseModel):
     )
 
 
-class ListPaymentMethodConfigurations(BaseModel):
-    """Schema for the ``list_payment_method_configurations`` operation."""
+class ListPaymentMethodConfigs(BaseModel):
+    """Schema for the ``list_payment_method_configs`` operation."""
 
     limit: Optional[int] = Field(
         None,
@@ -221,8 +221,8 @@ class ListPaymentMethodConfigurations(BaseModel):
     )
 
 
-class UpdatePaymentMethodConfiguration(BaseModel):
-    """Schema for the ``update_payment_method_configuration`` operation."""
+class UpdatePaymentMethodConfig(BaseModel):
+    """Schema for the ``update_payment_method_config`` operation."""
 
     configuration: str = Field(
         ..., description="The ID of the configuration to update."
@@ -230,6 +230,10 @@ class UpdatePaymentMethodConfiguration(BaseModel):
     payment_method: str = Field(
         ..., description="The payment method type to modify."
     )
-    enabled: bool = Field(
-        ..., description="Whether the payment method should be enabled."
+    preference: Literal["on", "off"] = Field(
+        ...,
+        description=(
+            "Display preference for the payment method."
+            " Must be 'on' or 'off'."
+        ),
     )

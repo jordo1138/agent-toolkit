@@ -389,7 +389,7 @@ def create_billing_portal_session(context: Context, customer: str, return_url: O
     }
 
 
-def list_payment_method_configurations(
+def list_payment_method_configs(
     context: Context, limit: Optional[int] = None
 ):
     """List payment method configurations."""
@@ -406,13 +406,13 @@ def list_payment_method_configurations(
     return [{"id": c.id} for c in configs.data]
 
 
-def update_payment_method_configuration(
-    context: Context, configuration: str, payment_method: str, enabled: bool
+def update_payment_method_config(
+    context: Context, configuration: str, payment_method: str, preference: str
 ):
-    """Enable or disable a payment method on a configuration."""
+    """Toggle a payment method's display preference."""
 
     update_params = {
-        payment_method: {"display_preference": {"merchant_enabled": enabled}}
+        payment_method: {"display_preference": {"preference": preference}}
     }
     if context.get("account") is not None:
         account = context.get("account")
