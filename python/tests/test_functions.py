@@ -17,8 +17,8 @@ from stripe_agent_toolkit.functions import (
     create_refund,
     list_payment_intents,
     create_billing_portal_session,
-    list_payment_method_configurations,
-    update_payment_method_configuration,
+    list_payment_method_configs,
+    update_payment_method_config,
 )
 
 
@@ -894,7 +894,7 @@ class TestStripeFunctions(unittest.TestCase):
                 "customer": mock_billing_portal_session["customer"],
             })
 
-    def test_list_payment_method_configurations(self):
+    def test_list_payment_method_configs(self):
         with mock.patch("stripe.PaymentMethodConfiguration.list") as mock_function:
             mock_configs = [
                 {"id": "pmc_123"},
@@ -906,17 +906,17 @@ class TestStripeFunctions(unittest.TestCase):
                 "sk"
             )
 
-            result = list_payment_method_configurations(context={})
+            result = list_payment_method_configs(context={})
 
             mock_function.assert_called_with()
             self.assertEqual(result, mock_configs)
 
-    def test_update_payment_method_configuration(self):
+    def test_update_payment_method_config(self):
         with mock.patch("stripe.PaymentMethodConfiguration.update") as mock_function:
             mock_config = {"id": "pmc_123"}
             mock_function.return_value = stripe.PaymentMethodConfiguration.construct_from(mock_config, "sk")
 
-            result = update_payment_method_configuration(
+            result = update_payment_method_config(
                 context={},
                 configuration="pmc_123",
                 payment_method="link",

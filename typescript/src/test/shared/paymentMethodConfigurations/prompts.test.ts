@@ -1,16 +1,16 @@
-import {listPaymentMethodConfigurationsPrompt} from '@/shared/paymentMethodConfigurations/listPaymentMethodConfigurations';
-import {updatePaymentMethodConfigurationPrompt} from '@/shared/paymentMethodConfigurations/updatePaymentMethodConfiguration';
+import {listPaymentMethodConfigsPrompt} from '@/shared/paymentMethodConfigurations/listPaymentMethodConfigs';
+import {updatePaymentMethodConfigPrompt} from '@/shared/paymentMethodConfigurations/updatePaymentMethodConfig';
 
-describe('listPaymentMethodConfigurationsPrompt', () => {
+describe('listPaymentMethodConfigsPrompt', () => {
   it('mentions limit argument', () => {
-    const prompt = listPaymentMethodConfigurationsPrompt();
+    const prompt = listPaymentMethodConfigsPrompt();
     expect(prompt).toContain('limit');
   });
 });
 
-describe('updatePaymentMethodConfigurationPrompt', () => {
+describe('updatePaymentMethodConfigPrompt', () => {
   it('mentions configuration argument', () => {
-    const prompt = updatePaymentMethodConfigurationPrompt();
+    const prompt = updatePaymentMethodConfigPrompt();
     expect(prompt).toContain('configuration');
   });
 });
