@@ -28,6 +28,7 @@ export const updatePaymentMethodConfig = async (
     const updateParams: any = {
       [params.payment_method]: {
         display_preference: {preference: params.preference},
+
       },
     };
 
