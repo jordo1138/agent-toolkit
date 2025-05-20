@@ -16,8 +16,8 @@ from .prompts import (
     CREATE_REFUND_PROMPT,
     LIST_PAYMENT_INTENTS_PROMPT,
     CREATE_BILLING_PORTAL_SESSION_PROMPT,
-    LIST_PAYMENT_METHOD_CONFIGURATIONS_PROMPT,
-    UPDATE_PAYMENT_METHOD_CONFIGURATION_PROMPT,
+    LIST_PAYMENT_METHOD_CONFIGS_PROMPT,
+    UPDATE_PAYMENT_METHOD_CONFIG_PROMPT,
 )
 
 from .schema import (
@@ -36,8 +36,8 @@ from .schema import (
     CreateRefund,
     ListPaymentIntents,
     CreateBillingPortalSession,
-    ListPaymentMethodConfigurations,
-    UpdatePaymentMethodConfiguration,
+    ListPaymentMethodConfigs,
+    UpdatePaymentMethodConfig,
 )
 
 tools: List[Dict] = [
@@ -207,10 +207,10 @@ tools: List[Dict] = [
         },
     },
     {
-        "method": "list_payment_method_configurations",
+        "method": "list_payment_method_configs",
         "name": "List Payment Method Configurations",
-        "description": LIST_PAYMENT_METHOD_CONFIGURATIONS_PROMPT,
-        "args_schema": ListPaymentMethodConfigurations,
+        "description": LIST_PAYMENT_METHOD_CONFIGS_PROMPT,
+        "args_schema": ListPaymentMethodConfigs,
         "actions": {
             "paymentMethodConfigurations": {
                 "read": True,
@@ -218,10 +218,10 @@ tools: List[Dict] = [
         },
     },
     {
-        "method": "update_payment_method_configuration",
+        "method": "update_payment_method_config",
         "name": "Update Payment Method Configuration",
-        "description": UPDATE_PAYMENT_METHOD_CONFIGURATION_PROMPT,
-        "args_schema": UpdatePaymentMethodConfiguration,
+        "description": UPDATE_PAYMENT_METHOD_CONFIG_PROMPT,
+        "args_schema": UpdatePaymentMethodConfig,
         "actions": {
             "paymentMethodConfigurations": {
                 "update": True,

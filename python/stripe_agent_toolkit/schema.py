@@ -209,8 +209,8 @@ class CreateBillingPortalSession(BaseModel):
     )
 
 
-class ListPaymentMethodConfigurations(BaseModel):
-    """Schema for the ``list_payment_method_configurations`` operation."""
+class ListPaymentMethodConfigs(BaseModel):
+    """Schema for the ``list_payment_method_configs`` operation."""
 
     limit: Optional[int] = Field(
         None,
@@ -221,8 +221,8 @@ class ListPaymentMethodConfigurations(BaseModel):
     )
 
 
-class UpdatePaymentMethodConfiguration(BaseModel):
-    """Schema for the ``update_payment_method_configuration`` operation."""
+class UpdatePaymentMethodConfig(BaseModel):
+    """Schema for the ``update_payment_method_config`` operation."""
 
     configuration: str = Field(
         ..., description="The ID of the configuration to update."

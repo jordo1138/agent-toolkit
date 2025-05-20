@@ -389,7 +389,7 @@ def create_billing_portal_session(context: Context, customer: str, return_url: O
     }
 
 
-def list_payment_method_configurations(
+def list_payment_method_configs(
     context: Context, limit: Optional[int] = None
 ):
     """List payment method configurations."""
@@ -406,7 +406,7 @@ def list_payment_method_configurations(
     return [{"id": c.id} for c in configs.data]
 
 
-def update_payment_method_configuration(
+def update_payment_method_config(
     context: Context, configuration: str, payment_method: str, enabled: bool
 ):
     """Enable or disable a payment method on a configuration."""

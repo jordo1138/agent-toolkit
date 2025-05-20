@@ -1,16 +1,16 @@
-import {listPaymentMethodConfigurationsParameters} from '@/shared/paymentMethodConfigurations/listPaymentMethodConfigurations';
-import {updatePaymentMethodConfigurationParameters} from '@/shared/paymentMethodConfigurations/updatePaymentMethodConfiguration';
+import {listPaymentMethodConfigsParameters} from '@/shared/paymentMethodConfigurations/listPaymentMethodConfigs';
+import {updatePaymentMethodConfigParameters} from '@/shared/paymentMethodConfigurations/updatePaymentMethodConfig';
 
-describe('listPaymentMethodConfigurationsParameters', () => {
+describe('listPaymentMethodConfigsParameters', () => {
   it('contains limit field', () => {
-    const params = listPaymentMethodConfigurationsParameters();
+    const params = listPaymentMethodConfigsParameters();
     expect(Object.keys(params.shape)).toEqual(['limit']);
   });
 });
 
-describe('updatePaymentMethodConfigurationParameters', () => {
+describe('updatePaymentMethodConfigParameters', () => {
   it('contains required fields', () => {
-    const params = updatePaymentMethodConfigurationParameters();
+    const params = updatePaymentMethodConfigParameters();
     expect(Object.keys(params.shape)).toEqual([
       'configuration',
       'payment_method',

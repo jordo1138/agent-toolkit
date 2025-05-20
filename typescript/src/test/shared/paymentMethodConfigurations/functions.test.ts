@@ -1,5 +1,5 @@
-import {listPaymentMethodConfigurations} from '@/shared/paymentMethodConfigurations/listPaymentMethodConfigurations';
-import {updatePaymentMethodConfiguration} from '@/shared/paymentMethodConfigurations/updatePaymentMethodConfiguration';
+import {listPaymentMethodConfigs} from '@/shared/paymentMethodConfigurations/listPaymentMethodConfigs';
+import {updatePaymentMethodConfig} from '@/shared/paymentMethodConfigurations/updatePaymentMethodConfig';
 
 const Stripe = jest.fn().mockImplementation(() => ({
   paymentMethodConfigurations: {
@@ -14,11 +14,11 @@ beforeEach(() => {
   stripe = new Stripe('fake');
 });
 
-describe('listPaymentMethodConfigurations', () => {
+describe('listPaymentMethodConfigs', () => {
   it('lists configurations', async () => {
     const mockConfigs = {data: [{id: 'pmc_123'}]};
     stripe.paymentMethodConfigurations.list.mockResolvedValue(mockConfigs);
-    const result = await listPaymentMethodConfigurations(stripe, {}, {});
+    const result = await listPaymentMethodConfigs(stripe, {}, {});
     expect(stripe.paymentMethodConfigurations.list).toHaveBeenCalledWith({}, undefined);
     expect(result).toEqual(mockConfigs.data);
   });
@@ -27,16 +27,16 @@ describe('listPaymentMethodConfigurations', () => {
     const mockConfigs = {data: []};
     stripe.paymentMethodConfigurations.list.mockResolvedValue(mockConfigs);
     const context = {account: 'acct_123'};
-    await listPaymentMethodConfigurations(stripe, context, {});
+    await listPaymentMethodConfigs(stripe, context, {});
     expect(stripe.paymentMethodConfigurations.list).toHaveBeenCalledWith({}, {stripeAccount: 'acct_123'});
   });
 });
 
-describe('updatePaymentMethodConfiguration', () => {
+describe('updatePaymentMethodConfig', () => {
   it('updates configuration', async () => {
     const mockConfig = {id: 'pmc_123'};
     stripe.paymentMethodConfigurations.update.mockResolvedValue(mockConfig);
-    const result = await updatePaymentMethodConfiguration(stripe, {}, {
+    const result = await updatePaymentMethodConfig(stripe, {}, {
       configuration: 'pmc_123',
       payment_method: 'link',
       enabled: true,

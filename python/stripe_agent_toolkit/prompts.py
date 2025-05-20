@@ -113,14 +113,14 @@ It takes two arguments:
 - return_url (str, optional): The default URL to return to afterwards.
 """
 
-LIST_PAYMENT_METHOD_CONFIGURATIONS_PROMPT = """
+LIST_PAYMENT_METHOD_CONFIGS_PROMPT = """
 This tool will fetch a list of Payment Method Configurations from Stripe.
 
 It takes one optional argument:
 - limit (int, optional): The number of configurations to return.
 """
 
-UPDATE_PAYMENT_METHOD_CONFIGURATION_PROMPT = """
+UPDATE_PAYMENT_METHOD_CONFIG_PROMPT = """
 This tool will update a payment method configuration in Stripe.
 
 It takes three arguments:
